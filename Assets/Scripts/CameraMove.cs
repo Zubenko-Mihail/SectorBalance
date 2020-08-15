@@ -16,5 +16,13 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         opora.transform.position = player.transform.position;
+        if (Input.GetKey(KeyCode.LeftBracket))
+        {
+            opora.transform.Rotate(Vector3.up*0.3f);
+        }
+        if (Input.GetKey(KeyCode.RightBracket))
+        {
+            opora.transform.Rotate(Vector3.down*0.3f);
+        }
     }
 }

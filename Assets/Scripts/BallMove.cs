@@ -5,9 +5,12 @@ using UnityEngine;
 public class BallMove : MonoBehaviour
 {
     Rigidbody rb;
+    public int velocity;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.maxAngularVelocity = float.MaxValue;
         
     }
 
@@ -17,7 +20,7 @@ public class BallMove : MonoBehaviour
     }
     void Move()
     {
-        rb.AddForce(Vector3.forward * Input.GetAxis("Vertical") * 200, ForceMode.Force);
-        rb.AddForce(Vector3.right * Input.GetAxis("Horizontal") * 200, ForceMode.Force);
+        rb.AddTorque(Vector3.right * Input.GetAxis("Vertical") * 50, ForceMode.Force);
+        rb.AddTorque(-Vector3.forward * Input.GetAxis("Horizontal") * 50, ForceMode.Force);
     }
 }
